@@ -1,7 +1,6 @@
 package com.toannm.aws.rekognition;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import software.amazon.awssdk.core.SdkBytes;
 import software.amazon.awssdk.services.rekognition.RekognitionClient;
 import software.amazon.awssdk.services.rekognition.model.*;
@@ -53,7 +52,7 @@ public class FaceUtility {
 		
 		List<UnindexedFace> unindexedFaceRecords = indexFacesResponse.unindexedFaces();
 		System.out.println("UnIndexed Faces:");
-		String unindexedFaceRecordsSerialized = gson.toJson(faceRecords);
+		String unindexedFaceRecordsSerialized = gson.toJson(unindexedFaceRecords);
 		System.out.println(unindexedFaceRecordsSerialized);
 	}
 	
