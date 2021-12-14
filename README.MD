@@ -16,7 +16,7 @@
     - Các bước để khởi tạo tài khoản ```IAM``` với quyền quản trị:
         1. Đăng nhập vào trang [IAM console](https://console.aws.amazon.com/iam/) với quyền Root.
         2. Kích hoạt quyền truy cập vào các thông tin thanh toán cho tài khoản ```IAM admin```
-           - Tại nhanh ```Navigation```, click vào ```Tên tài khoản``` và chọn ```My Account```
+           - Tại thanh ```Navigation```, click vào ```Tên tài khoản``` và chọn ```My Account```
            - Chọn ```Edit``` tại phần ```IAM User and Role Access to Billing Information``` (Chỉ có tài khoản ```root``` mới có quyền thực hiện thao tác này).
            - Tích chọn ô ```Activate IAM Access``` sau đó chọn ```Update```
            - Chọn ```Services``` > ```IAM``` tại thanh ```Navigation``` để trở về trang ```IAM console```.
@@ -25,7 +25,7 @@
 
         4. Tại trang ```Detail```
            - Điền **Administrator** vào trường ```User Name```
-           - Tích chọn ô ```AWS Management Console access```, chọn ```Custom password``` sau nhập mật khẩu mới của bạn
+           - Tích chọn ô ```AWS Management Console access```, chọn ```Custom password``` sau đó nhập mật khẩu mới của bạn
            - Theo mặc định, AWS sẽ yêu cầu người dùng mới đổi mật khẩu sau lần đầu tiên đăng nhập. Để bỏ qua yêu cầu này, xoá chọn ô ```User must create a new password at next sign-in```
            - Sau khi đã hoàn tất các bước trên, chọn ```Next: Permissions```
         5. Tại trang ```Permission```
@@ -34,18 +34,18 @@
            - Một hộp thoại mới xuất hiện, điền **Administrators** vào trường ```Group name```
            - Chọn ô ```AdministratorAccess```.
            - Sau khi hoàn tất, chọn nút ```Create group```.
-           - Trở lại trang với danh sách các nhóm người dùng, chọn nhóm người dùng bạn và tạo (Refresh trang nếu nhóm người dùng bạn vừa tạo không xuát hiện).
+           - Trở lại trang chứa danh sách các nhóm người dùng hiện hữu, tìm và chọn nhóm người dùng bạn vừa tạo (Refresh trang nếu nhóm người dùng bạn vừa tạo không xuất hiện).
            - Chọn ```Next: Tags```
         6. Tại trang Tags, thêm các ```metadata``` cho người dùng bằng cách đính các nhãn là các cặp ```key-value``` (Không bắt buộc).
-        7. Chọn ```Next: Review```, xác nhận lại các thông tin về nhóm đã được them bởi bạn. Sau khi xác nhận lại các thông tin, chọn ```Create user```.
-        8. Tại trang ```Complete```, tải file ```.csv``` chứa các thông tin đăng nhập của người dùng về máy.
+        7. Chọn ```Next: Review```, xác nhận lại các thông tin về nhóm đã được thêm bởi bạn. Sau khi xác nhận lại các thông tin, chọn ```Create user```.
+        8. Tại trang ```Complete```, tải file ```.csv``` chứa các thông tin đăng nhập của người dùng.
 
 3. Cài đặt ```AWS CLI```
     - Chọn phiên bản ```aws cli``` phù hợp và tải xuống [tại đây](https://aws.amazon.com/cli/?nc1=h_ls)
     - Tạo một ```khoá truy cập``` cho tài khoản IAM bạn vừa tạo
         1. Đăng nhập vào trang ```AWS Management Console``` và mở ```IAM console``` [tại đây](https://console.aws.amazon.com/iam/).
         2. Tại khu vực ```navigation``` chọn ```Users```.
-        3. Chọn tên của tài khoản bạn đã tạo, một hộp thoại sẽ xuất hiện trên màn hình.
+        3. Tìm và chọn tên của tài khoản bạn đã tạo, một hộp thoại sẽ xuất hiện trên màn hình.
         4. Chọn tab ```Security credentials```
         5. Chọn ```Create access key```, Sau đó tải file ```.csv``` và lưu vào một khu vực an toàn. Khoá truy cập này sẽ không thể cấp lại sau khi đóng hộp thoại.
         6. Tạo thư mực ```.aws```
@@ -216,7 +216,7 @@
 
 2. Luồng Search Face
 
-    ![Error](./searchfaces.png)
+    ![Error](./searchfaces.svg)
 
 ## Code example
 
