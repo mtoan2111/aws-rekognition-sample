@@ -14,7 +14,7 @@
 2. Tạo tài khoản IAM
     - Các dịch vụ trong hệ thống AWS đều yêu cầu người dùng cung cấp một chứng chỉ trước khi sử dụng. Thông qua các chứng chỉ này, AWS có thể xác định được các quyền truy cập vào tài nguyên của các dịch vụ tương ứng. Việc tạo các chứng chỉ này có thể thực hiện bằng ```AWS CLI``` hoặc sử dụng các ```API``` liên quan.
     - Các bước để khởi tạo tài khoản ```IAM``` với quyền quản trị:
-        1. Đăng nhập vào trang [IAM console]https://console.aws.amazon.com/iam/) với quyền Root.
+        1. Đăng nhập vào trang [IAM console](https://console.aws.amazon.com/iam/) với quyền Root.
         2. Kích hoạt quyền truy cập vào các thông tin thanh toán cho tài khoản ```IAM admin```
            - Tại nhanh ```Navigation```, click vào ```Tên tài khoản``` và chọn ```My Account```
            - Chọn ```Edit``` tại phần ```IAM User and Role Access to Billing Information``` (Chỉ có tài khoản ```root``` mới có quyền thực hiện thao tác này).
@@ -76,7 +76,7 @@
             region = your_aws_region
             ```
 
-            - Theo mặc định, nếu không khai báo ```region``` thì ```us-east-1``` sẽ được sử dụng. 
+            - Theo mặc định, nếu không khai báo ```region``` thì ```us-east-1``` sẽ được sử dụng.
 
 ## Sử dụng SDK (JAVA SDK v2)
 
@@ -149,7 +149,7 @@
                 <dependency>
                     <groupId>software.amazon.awssdk</groupId>
                     <artifactId>bom</artifactId>
-                    <version>2.16.60</version>
+                    <version>2.17.46</version>
                     <type>pom</type>
                     <scope>import</scope>
                 </dependency>
@@ -193,7 +193,6 @@
 
     - Video sử dụng maven trên ```IntelliJ IDEA``` [tại đây](https://www.youtube.com/watch?v=JhSBS2OpGdU).
 
-
 ## Face Recognition
 
 - Để làm việc với các API Face Recognition, cần khởi tạo một ```FaceCollection```
@@ -213,13 +212,12 @@
 
 1. Luồng indexFace
 
-![Error](./indexface.svg)
+    ![Error](./indexface.svg)
 
 2. Luồng Search Face
 
-![Error](./searchfaces.png)
-
+    ![Error](./searchfaces.png)
 
 ## Code example
 
-[Github]()
+[Github](https://github.com/mtoan2111/aws-rekognition-sample)
