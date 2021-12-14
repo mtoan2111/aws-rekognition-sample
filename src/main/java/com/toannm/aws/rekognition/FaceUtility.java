@@ -15,15 +15,15 @@ import java.util.List;
 
 public class FaceUtility {
 	public void updateFaceToCollection(RekognitionClient rekClient, String collectionId) {
-		addToCollection(rekClient, collectionId);
+		addFaceToCollection(rekClient, collectionId);
 	}
 	
-	private void addToCollection(RekognitionClient rekClient, String collectionId) {
+	private void addFaceToCollection(RekognitionClient rekClient, String collectionId) {
 		String imgPath = this.getImagePath();
 		if (imgPath == "") {
 			return;
 		}
-		Image imgBytes = createImageStream(imgPath);
+		Image imgBytes = createImageByteSteam(imgPath);
 		
 		if (imgBytes == null) {
 			return;
@@ -56,16 +56,16 @@ public class FaceUtility {
 		System.out.println(unindexedFaceRecordsSerialized);
 	}
 	
-	public void FaceSearchingByFaceId(String faceId) {
+	public void faceSearchingByFaceId(String faceId) {
 	
 	}
 	
-	public void FaceSearchingByImage(RekognitionClient rekClient, String collectionId) {
+	public void faceSearchingByImage(RekognitionClient rekClient, String collectionId) {
 		String imgPath = this.getImagePath();
 		if (imgPath == "") {
 			return;
 		}
-		Image imgBytes = createImageStream(imgPath);
+		Image imgBytes = createImageByteSteam(imgPath);
 		
 		if (imgBytes == null) {
 			return;
@@ -101,7 +101,7 @@ public class FaceUtility {
 		return "";
 	}
 	
-	private Image createImageStream(String imgPath) {
+	private Image createImageByteSteam(String imgPath) {
 		try {
 			InputStream srcStream = new FileInputStream(imgPath);
 			SdkBytes srcBytes = SdkBytes.fromInputStream(srcStream);

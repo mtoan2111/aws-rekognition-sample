@@ -37,10 +37,10 @@ public class FaceCollectionUtility {
 
 			switch (option) {
 				case 1:
-					createMyCollection(rekClient);
+					createFaceCollection(rekClient);
 					break;
 				case 2:
-					List<String> collectionIds = listFaceCollections(rekClient);
+					List<String> collectionIds = getFaceCollections(rekClient);
 					for (String id : collectionIds) {
 						System.out.println(id);
 					}
@@ -57,7 +57,7 @@ public class FaceCollectionUtility {
 		}
 	}
 	
-	public static void createMyCollection(RekognitionClient rekClient) {
+	public static void createFaceCollection(RekognitionClient rekClient) {
 		
 		try {
 			System.out.println("Creating collection");
@@ -80,7 +80,7 @@ public class FaceCollectionUtility {
 		}
 	}
 	
-	public static List<String> listFaceCollections(RekognitionClient rekClient) {
+	public static List<String> getFaceCollections(RekognitionClient rekClient) {
 		try {
 			ListCollectionsRequest listCollectionsRequest = ListCollectionsRequest.builder().maxResults(10).build();
 			
@@ -95,7 +95,7 @@ public class FaceCollectionUtility {
 	}
 	
 	public static void addFaceToCollection(RekognitionClient rekClient) {
-		String collectionId = getCollectionId(rekClient);
+		String collectionId = getFaceCollectionId(rekClient);
 		if (collectionId == ""){
 			return;
 		}
@@ -104,19 +104,19 @@ public class FaceCollectionUtility {
 	}
 	
 	public static void searchFaceByImage(RekognitionClient rekClient){
-		String collectionId = getCollectionId(rekClient);
+		String collectionId = getFaceCollectionId(rekClient);
 		if (collectionId == ""){
 			return;
 		}
 		FaceUtility fc = new FaceUtility();
-		fc.FaceSearchingByImage(rekClient, collectionId);
+		fc.faceSearchingByImage(rekClient, collectionId);
 	}
 	
-	private static String getCollectionId(RekognitionClient rekClient){
+	private static String getFaceCollectionId(RekognitionClient rekClient){
 		System.out.print("Type your collection id here:");
 		String collectionId = scanner.nextLine();
 
-		List<String> collectionIds = listFaceCollections(rekClient);
+		List<String> collectionIds = getFaceCollections(rekClient);
 
 		if (!collectionIds.contains(collectionId)) {
 			System.out.println("Collection Ids not found");
