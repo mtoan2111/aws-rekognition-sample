@@ -11,6 +11,7 @@ import java.util.Scanner;
  * Hello world!
  */
 public class FaceCollectionUtility {
+	static final Scanner scanner = new Scanner(System.in);
 	public static void main(String[] args) {
 		final String USAGE = "\n" +
 				"Usage: \n\n" +
@@ -24,28 +25,25 @@ public class FaceCollectionUtility {
 				.region(region)
 				.build();
 		
-		Runtime.getRuntime().addShutdownHook(new Thread() {
-			@Override
-			public void run() {
-				System.out.println("Shutdown hook ran!");
-				rekClient.close();
-				System.exit(1);
-			}
-		});
-		
 		while (true) {
 			System.out.println(USAGE);
 			System.out.print("Choose an options: ");
-			
-			Scanner optionScanner = new Scanner(System.in);
-			int option = Integer.parseInt(optionScanner.nextLine());
-			optionScanner.close();
+
+
+			int option = -1;
+			if (scanner.hasNextLine()){
+				option = Integer.parseInt(scanner.nextLine());
+			}
+
 			switch (option) {
 				case 1:
 					createMyCollection(rekClient);
 					break;
 				case 2:
-					listFaceCollections(rekClient);
+					List<String> collectionIds = listFaceCollections(rekClient);
+					for (String id : collectionIds) {
+						System.out.println(id);
+					}
 					break;
 				case 3:
 					addFaceToCollection(rekClient);
@@ -64,10 +62,8 @@ public class FaceCollectionUtility {
 		try {
 			System.out.println("Creating collection");
 			System.out.print("Type your collectionId: ");
-			Scanner collectionIdScanner = new Scanner(System.in);
-			String collectionId = collectionIdScanner.nextLine();
-			collectionIdScanner.close();
-			
+			String collectionId = scanner.nextLine();
+						
 			CreateCollectionRequest collectionRequest = CreateCollectionRequest.builder()
 					.collectionId(collectionId)
 					.build();
@@ -81,7 +77,6 @@ public class FaceCollectionUtility {
 			
 		} catch (RekognitionException e) {
 			System.out.println(e.getMessage());
-			System.exit(1);
 		}
 	}
 	
@@ -94,6 +89,7 @@ public class FaceCollectionUtility {
 			
 			return collectionIds;
 		} catch (RekognitionException e) {
+			System.out.println(e.getMessage());
 			return null;
 		}
 	}
@@ -118,10 +114,7 @@ public class FaceCollectionUtility {
 	
 	private static String getCollectionId(RekognitionClient rekClient){
 		System.out.print("Type your collection id here:");
-		
-		Scanner collectionIdScanner = new Scanner(System.in);
-		String collectionId = collectionIdScanner.nextLine();
-		collectionIdScanner.close();
+		String collectionId = scanner.nextLine();
 
 		List<String> collectionIds = listFaceCollections(rekClient);
 
